@@ -13,9 +13,9 @@
 
 **[Скачать (cport.psm1)](https://github.com/Lifailon/CPort/releases)**.
 
-Создать папку cport в одном из каталогов:\
-C:\Users\%username%\Documents\WindowsPowerShell\Modules
-C:\Program Files\WindowsPowerShell\Modules
+Создать папку cport в одном из каталогов: \
+C:\Users\%username%\Documents\WindowsPowerShell\Modules \
+C:\Program Files\WindowsPowerShell\Modules \
 И скопируйте туда модуль: **cport.psm1**
 
 ## Синтаксис
