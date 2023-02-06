@@ -11,10 +11,16 @@
 
 ## Установка
 
-**Создать директорию `cport` в одном из каталогов:** \
+* Установить модуль **[ThreadJob](https://www.powershellgallery.com/packages/ThreadJob/2.0.3)**: ` Install-Module -Name ThreadJob ` \
+Запустите powershell, и проверьте, что модуль установлен: ` Get-Module ThreadJob -List `
+
+* **Создайте директорию `cport` в одном из каталогов:** \
 ` C:\Users\%username%\Documents\WindowsPowerShell\Modules ` \
 ` C:\Program Files\WindowsPowerShell\Modules ` \
-И скопируйте туда модуль: **[cport.psm1](https://github.com/Lifailon/CPort/releases)**.
+И скопируйте туда модуль: **[cport.psm1](https://github.com/Lifailon/CPort/releases)** \
+` Get-Module cport -list `
+
+Проверьте
 
 ## Синтаксис
 
