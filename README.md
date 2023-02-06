@@ -18,7 +18,7 @@
 ` C:\Users\%username%\Documents\WindowsPowerShell\Modules ` \
 ` C:\Program Files\WindowsPowerShell\Modules ` \
 И скопируйте туда модуль: **[cport.psm1](https://github.com/Lifailon/CPort/releases)** \
-` Get-Module cport -list `
+` Get-Module cport -List `
 
 ## Синтаксис
 
@@ -27,10 +27,10 @@
 Проверка нескольких портов на одном хосте: \
 ` cport 192.168.1.10 443 ` \
 ` cport 192.168.1.10 22,3389 ` \
-` cport 192.168.1.10 20-70 ` \
+` cport 192.168.1.10 20-70 `
 
 Проверка хостов всей подсети: \
-` cport 192.168.1.0 80 ` \
+` cport 192.168.1.0 80 `
 
 Быстрый режим (fast mode): \
 ` cport 192.168.1.0 80 100 `
