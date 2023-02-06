@@ -22,8 +22,6 @@
 
 ## Синтаксис
 
-![Image alt](https://github.com/Lifailon/CPort/blob/rsa/Screen/cport-1.3.jpg)
-
 **Справка:** ` Get-Help cport `
 
 * Проверка нескольких портов на одном хосте: \
@@ -36,6 +34,8 @@
 
 * Быстрый режим (fast mode): \
 ` cport 192.168.1.0 80 100 `
+
+![Image alt](https://github.com/Lifailon/CPort/blob/rsa/Screen/cport-1.3.jpg)
 
 ## Метод ConnectAsync
 
