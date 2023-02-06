@@ -17,7 +17,7 @@
 * **Создайте директорию `cport` в одном из каталогов:** \
 ` C:\Users\%username%\Documents\WindowsPowerShell\Modules ` \
 ` C:\Program Files\WindowsPowerShell\Modules ` \
-И скопируйте туда модуль: **[cport.psm1](https://github.com/Lifailon/CPort/releases)** \
+Скопируйте туда модуль: **[cport.psm1](https://github.com/Lifailon/CPort/releases)** \
 ` Get-Module cport -List `
 
 ## Синтаксис
