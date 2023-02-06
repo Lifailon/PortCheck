@@ -11,7 +11,7 @@
 
 ## Установка
 
-* Установить модуль **[ThreadJob](https://www.powershellgallery.com/packages/ThreadJob/2.0.3)**: ` Install-Module -Name ThreadJob ` \
+* Установите модуль **[ThreadJob](https://www.powershellgallery.com/packages/ThreadJob/2.0.3)**: ` Install-Module -Name ThreadJob ` \
 Запустите powershell, и проверьте, что модуль установлен: ` Get-Module ThreadJob -List `
 
 * **Создайте директорию `cport` в одном из каталогов:** \
