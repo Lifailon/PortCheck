@@ -1,6 +1,6 @@
 # CPort
 
-### Модуль для проверки доступности портов
+### Модуль для проверки доступности TCP-портов
 
 Используется два метода из **класса .NET: System.Net.Sockets.TcpClient**, с применением **модуля ThreadJob**.
 
@@ -31,7 +31,7 @@
 Проверка хостов всей подсети: \
 ` cport 192.168.1.0 80 `
 
-Быстрый режим (fast mode): \
+Быстрый режим (Fast Mode): \
 ` cport 192.168.1.0 80 100 `
 
 ![Image alt](https://github.com/Lifailon/CPort/blob/rsa/Screen/cport-1.3.jpg)
