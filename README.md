@@ -45,6 +45,9 @@
 **Преимущество:** Данный метод удобно использовать в случае, **если закрыт icmp, с помощью проверки одного TCP-порта, можно выявить доступность хоста**. \
 **Недостаток** метода в том, что на проверку одного выключенного хоста уходит 20 секунд, а на доступном хосте 2 секунды.
 
+**[Скачать (cport-1.1.ps1)](https://github.com/Lifailon/CPort/blob/rsa/Scripts/cport-1.1.ps1)** \
+Импортировать: ` Import-Module .\cport-1.1.ps1 `
+
 ![Image alt](https://github.com/Lifailon/CPort/blob/rsa/Screen/1.1.%20Method-ConnectAsync.jpg)
 
 ## Метод BeginConnect
@@ -60,3 +63,5 @@
 ![Image alt](https://github.com/Lifailon/CPort/blob/rsa/Screen/1.3.%20Method-ConnectAsync-100ms.jpg)
 
 **Исходя из полученных результатов, создание задания (Jobs) в итоге занимает ровно на 25% меньше времени, чем Sleep 100 Milliseconds, но тут уже зависит от производительности процессора.**
+
+**[Модуль без применения ThreadJob (cport-1.2.ps1)](https://github.com/Lifailon/CPort/blob/rsa/Scripts/cport-1.2.ps1)** \
