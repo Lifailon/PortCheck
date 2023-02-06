@@ -64,4 +64,4 @@
 
 **Исходя из полученных результатов, создание задания (Jobs) в итоге занимает ровно на 25% меньше времени, чем Sleep 100 Milliseconds, но тут уже зависит от производительности процессора.**
 
-**[Модуль без применения ThreadJob (cport-1.2.ps1)](https://github.com/Lifailon/CPort/blob/rsa/Scripts/cport-1.2.ps1)** \
+**[Модуль без применения ThreadJob (cport-1.2.ps1)](https://github.com/Lifailon/CPort/blob/rsa/Scripts/cport-1.2.ps1)**
