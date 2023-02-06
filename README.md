@@ -18,7 +18,6 @@
 ` C:\Users\%username%\Documents\WindowsPowerShell\Modules ` \
 ` C:\Program Files\WindowsPowerShell\Modules ` \
 Скопируйте туда модуль: **[cport.psm1](https://github.com/Lifailon/CPort/releases)** \
-` Get-Module cport -List `
 
 ## Синтаксис
 
