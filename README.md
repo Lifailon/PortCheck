@@ -53,10 +53,10 @@
 
 Мне было любопытно проверсти **сравнение данного метода с и без использования ThreadJob**.
 
-* Timeout 500 milliseconds: \
+**Timeout 500 milliseconds:** \
 ![Image alt](https://github.com/Lifailon/CPort/blob/rsa/Screen/1.2.%20Method-BeginConnect.jpg)
 
-* Timeout 100 milliseconds: \
+**Timeout 100 milliseconds:** \
 ![Image alt](https://github.com/Lifailon/CPort/blob/rsa/Screen/1.3.%20Method-ConnectAsync-100ms.jpg)
 
 Исходя из полученных результатов, создание задания (Jobs) в итоге занимает меньше времени, чем Sleep 100 Milliseconds, но тут уже зависит от производительности процессора.
