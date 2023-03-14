@@ -5,8 +5,8 @@
 Используется два метода из **класса .NET: System.Net.Sockets.TcpClient**. \
 - [Установка](#Установка)
 - [Синтаксис](#Синтаксис)
-- [Метод ConnectAsync](#Метод-ConnectAsync)
-- [Метод BeginConnect](#Метод-BeginConnect)
+- [Метод ConnectAsync](#Метод-ConnectAsync-(1.0))
+- [Метод BeginConnect](#Метод-BeginConnect-(1.1))
 
 ## Установка
 
