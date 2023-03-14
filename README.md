@@ -48,7 +48,7 @@
 
 ![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.1-%20Method-BeginConnect-and-Fast-Mode.jpg)
 
-## С применение PSThreadJob (1.3)
+## С применение ThreadJob (1.3)
 
 **Сравнение данного метода с и без использования ThreadJob (Timeout 100 milliseconds)**.
 
