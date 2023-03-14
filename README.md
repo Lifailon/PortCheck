@@ -32,7 +32,7 @@
 Быстрый режим (Fast Mode): \
 ` Get-PortCheck 192.168.1.0 80 100 `
 
-## Метод ConnectAsync (1.1)
+## Метод ConnectAsync (1.0)
 
 **Медленный метод**, т.к. не имеет возможности на уровне клиента (за исключением метода Wait) сократить время ожидания ответа от хоста. Данный способ собирает информацию о подключении, и возвращает ErrorCode, из которого можно инициализировать причину недоступности порта. \
 **10061** - порт закрыт/фильтруется \
@@ -42,16 +42,16 @@
 
 ![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.0-Method-ConnectAsync.jpg)
 
-## Метод BeginConnect (1.2)
+## Метод BeginConnect (1.1)
 
 **Быстрый метод**, где мы пытаемся установить соединение, без последующего подключения. Тем самым можно задать **timeout (третий параметр)**, и сократить время сканирования портов, разрывая попытку соединения.
 
 ![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.1-%20Method-BeginConnect-and-Fast-Mode.jpg)
 
-## С применение ThreadJob (1.3)
+## С применение ThreadJob (1.2)
 
 **Сравнение данного метода с и без использования ThreadJob (Timeout 100 milliseconds)**.
 
 ![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.1-vs-1.2-ThreadJob.jpg)
 
-**Исходя из полученных результатов, создание задания (Jobs) в итоге занимает ровно на 25% меньше времени, чем Sleep 100 Milliseconds**.
+**Исходя из полученных результатов, создание задания (Jobs) в итоге занимае в среднем на 30-40% меньше времени, чем sleep 100 Milliseconds**.
