@@ -2,7 +2,7 @@
 
 ### Модуль для проверки доступности TCP-портов.
 
-Используется два метода из **класса .NET: System.Net.Sockets.TcpClient**, с применением **модуля [PSThreadJob](https://github.com/PaulHigin/PSThreadJob)**.
+Используется два метода из **класса .NET: System.Net.Sockets.TcpClient**. \
 - [Установка](#Установка)
 - [Синтаксис](#Синтаксис)
 - [Метод ConnectAsync](#Метод-ConnectAsync)
@@ -10,7 +10,7 @@
 
 ## Установка
 
-* Установите модуль **[ThreadJob](https://www.powershellgallery.com/packages/ThreadJob/2.0.3)**: ` Install-Module -Name ThreadJob  -Source PSGallery ` \
+* Установите модуль **[ThreadJob](https://github.com/PaulHigin/PSThreadJob)**: ` Install-Module -Name ThreadJob  -Source PSGallery ` \
 Запустите powershell, и проверьте, что модуль установлен: ` Get-Module ThreadJob -List `
 
 * **Скопируйте директорию `Get-PortCheck` с модулем в один из каталогов:** \
@@ -32,7 +32,7 @@
 Быстрый режим (Fast Mode): \
 ` Get-PortCheck 192.168.1.0 80 100 `
 
-## Метод ConnectAsync
+## Метод ConnectAsync (1.1)
 
 **Медленный метод**, т.к. не имеет возможности на уровне клиента (за исключением метода Wait) сократить время ожидания ответа от хоста. Данный способ собирает информацию о подключении, и возвращает ErrorCode, из которого можно инициализировать причину недоступности порта. \
 **10061** - порт закрыт/фильтруется \
@@ -42,11 +42,13 @@
 
 ![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.0-Method-ConnectAsync.jpg)
 
-## Метод BeginConnect
+## Метод BeginConnect (1.2)
 
 **Быстрый метод**, где мы пытаемся установить соединение, без последующего подключения. Тем самым можно задать **timeout (третий параметр)**, и сократить время сканирования портов, разрывая попытку соединения.
 
 ![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.1-%20Method-BeginConnect-and-Fast-Mode.jpg)
+
+## С применение PSThreadJob (1.3)
 
 **Сравнение данного метода с и без использования ThreadJob (Timeout 100 milliseconds)**.
 
