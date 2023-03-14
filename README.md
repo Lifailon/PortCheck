@@ -32,8 +32,6 @@
 Быстрый режим (Fast Mode): \
 ` Get-PortCheck 192.168.1.0 80 100 `
 
-![Image alt](https://github.com/Lifailon/CPort/blob/rsa/Screen/cport-1.3.jpg)
-
 ## Метод ConnectAsync
 
 **Медленный метод**, т.к. не имеет возможности на уровне клиента (за исключением метода Wait) сократить время ожидания ответа от хоста. Данный способ собирает информацию о подключении, и возвращает ErrorCode, из которого можно инициализировать причину недоступности порта. \
@@ -42,14 +40,16 @@
 **Преимущество:** удобно использовать в случае, **если закрыт icmp, с помощью проверки одного TCP-порта, можно выявить доступность хоста**. \
 **Недостаток:** на проверку одного выключенного хоста уходит 20 секунд, а на доступном хосте 2 секунды.
 
-![Image alt](https://github.com/Lifailon/CPort/blob/rsa/Screen/1.1.%20Method-ConnectAsync.jpg)
+![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.0-Method-ConnectAsync.jpg)
 
 ## Метод BeginConnect
 
 **Быстрый метод**, где мы пытаемся установить соединение, без последующего подключения. Тем самым можно задать **timeout (третий параметр)**, и сократить время сканирования портов, разрывая попытку соединения.
 
+![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.1-%20Method-BeginConnect-and-Fast-Mode.jpg)
+
 **Сравнение данного метода с и без использования ThreadJob (Timeout 100 milliseconds)**.
 
-![Image alt](https://github.com/Lifailon/CPort/blob/rsa/Screen/1.3.%20Method-ConnectAsync-100ms.jpg)
+![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.1-vs-1.2-ThreadJob.jpg)
 
 **Исходя из полученных результатов, создание задания (Jobs) в итоге занимает ровно на 25% меньше времени, чем Sleep 100 Milliseconds**.
