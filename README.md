@@ -2,7 +2,9 @@
 
 ### Модуль для проверки доступности TCP-портов.
 
-Используется два метода из **класса .NET: System.Net.Sockets.TcpClient**.
+Используется два метода из **класса .NET: System.Net.Sockets.TcpClient** с выводом в **PSCustomObject**.
+
+![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.4-PSCustomObject.jpg)
 
 ## Установка
 
@@ -28,6 +30,9 @@
 Быстрый режим (Fast Mode): \
 ` Get-PortCheck 192.168.1.0 80 100 `
 
+Вывести только открытые порты: \
+` Get-PortCheck 192.168.1.0 80 100 -open`
+
 ## Метод ConnectAsync (1.0)
 
 **Медленный метод**, т.к. не имеет возможности на уровне клиента (за исключением метода Wait) сократить время ожидания ответа от хоста. Данный способ собирает информацию о подключении, и возвращает ErrorCode, из которого можно инициализировать причину недоступности порта. \
@@ -48,6 +53,6 @@
 
 **Сравнение данного метода с и без использования ThreadJob (Timeout 100 milliseconds)**.
 
-![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.1-vs-1.2-ThreadJob.jpg)
+![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.1-vs-1.2-ThreadJob-Fast-Mode.jpg)
 
-**Исходя из полученных результатов, создание задания (Jobs) в итоге занимае в среднем на 30-40% меньше времени, чем sleep 100 Milliseconds**.
+**Исходя из полученных результатов, создание задания (Jobs) занимае в среднем на 30-40% меньше времени, чем sleep 100 Milliseconds**.
