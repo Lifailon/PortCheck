@@ -2,7 +2,7 @@
 
 ### Модуль для проверки доступности TCP-портов.
 
-Используется два метода из **класса .NET: System.Net.Sockets.TcpClient** с выводом в **PSCustomObject**.
+Используется класс .NET: **System.Net.Sockets.TcpClient** с выводом в **PSCustomObject**.
 
 ![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.3-PSCustomObject.jpg)
 
