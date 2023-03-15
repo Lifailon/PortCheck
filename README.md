@@ -4,7 +4,7 @@
 
 Используется два метода из **класса .NET: System.Net.Sockets.TcpClient** с выводом в **PSCustomObject**.
 
-![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.4-PSCustomObject.jpg)
+![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.3-PSCustomObject.jpg)
 
 ## Установка
 
@@ -47,12 +47,12 @@
 
 **Быстрый метод**, где мы пытаемся установить соединение, без последующего подключения. Тем самым можно задать **timeout (третий параметр)**, и сократить время сканирования портов, разрывая попытку соединения.
 
-![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.1-%20Method-BeginConnect-and-Fast-Mode.jpg)
+![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.1-%20Method-BeginConnect-500ms-vs-100ms.jpg)
 
 ## С применение ThreadJob (1.2)
 
 **Сравнение данного метода с и без использования ThreadJob (Timeout 100 milliseconds)**.
 
-![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.1-vs-1.2-ThreadJob-Fast-Mode.jpg)
+![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.1-vs-1.2-ThreadJob.jpg)
 
 **Исходя из полученных результатов, создание задания (Jobs) занимае в среднем на 30-40% меньше времени, чем sleep 100 Milliseconds**.
