@@ -1,58 +1,60 @@
-# Get-PortCheck
+# PortCheck
 
-### Модуль для проверки доступности TCP-портов.
+[Description in Russian](https://github.com/Lifailon/PortCheck/blob/rsa/README_ru.md)
 
-Используется класс .NET: **System.Net.Sockets.TcpClient** с выводом в **PSCustomObject**.
+Module for quick check of open ports on the network
 
-![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.3-PSCustomObject.jpg)
+Used class **.NET**: `System.Net.Sockets.TcpClient` and method `BeginConnect`
 
-## Установка
+Install: `Install-Module PortCheck`
 
-* Установите модуль **[ThreadJob](https://github.com/PaulHigin/PSThreadJob)**: ` Install-Module -Name ThreadJob  -Source PSGallery ` \
-Запустите powershell, и проверьте, что модуль установлен: ` Get-Module ThreadJob -List `
+Dependencies: `Install-Module ThreadJob`
 
-* **Скопируйте директорию `Get-PortCheck` с модулем в один из каталогов:** \
-` C:\Users\%username%\Documents\WindowsPowerShell\Modules ` \
-` C:\Program Files\WindowsPowerShell\Modules ` \
+Format: `Get-PortCheck <IP-Address/Subnet> <Port> <Timeout>`
 
-## Синтаксис
+Works in PowerShell versions 5.1 and 7.3
 
-` Get-Help Get-PortCheck `
+## Examples:
 
-Проверка нескольких портов на одном хосте: \
-` Get-PortCheck 192.168.1.10 443 ` \
-` Get-PortCheck 192.168.1.10 22,3389 ` \
-` Get-PortCheck 192.168.1.10 20-70 `
+```PowerShell
+PS C:\Users\lifailon> Get-PortCheck 192.168.3.102 3000
 
-Проверка хостов всей подсети: \
-` Get-PortCheck 192.168.1.0 80 `
+IP            Port Status
+--            ---- ------
+192.168.3.102 3000 Opened
 
-Быстрый режим (Fast Mode): \
-` Get-PortCheck 192.168.1.0 80 100 `
+PS C:\Users\lifailon> Get-PortCheck 192.168.3.102 22,80,443,3000,3389,8085,8086
 
-Вывести только открытые порты: \
-` Get-PortCheck 192.168.1.0 80 100 -open`
+IP            Port Status
+--            ---- ------
+192.168.3.102 22   Closed
+192.168.3.102 80   Closed
+192.168.3.102 443  Closed
+192.168.3.102 3000 Opened
+192.168.3.102 3389 Closed
+192.168.3.102 8085 Closed
+192.168.3.102 8086 Opened
 
-## Метод ConnectAsync (1.0)
+PS C:\Users\lifailon> Get-PortCheck 192.168.3.102 8080-8090
 
-**Медленный метод**, т.к. не имеет возможности на уровне клиента (за исключением метода Wait) сократить время ожидания ответа от хоста. Данный способ собирает информацию о подключении, и возвращает ErrorCode, из которого можно инициализировать причину недоступности порта. \
-**10061** - порт закрыт/фильтруется \
-**10060** - хост недоступен \
-**Преимущество:** удобно использовать в случае, **если закрыт icmp, с помощью проверки одного TCP-порта, можно выявить доступность хоста**. \
-**Недостаток:** на проверку одного выключенного хоста уходит 20 секунд, а на доступном хосте 2 секунды.
+IP            Port Status
+--            ---- ------
+192.168.3.102 8080 Closed
+192.168.3.102 8081 Closed
+192.168.3.102 8082 Closed
+192.168.3.102 8083 Closed
+192.168.3.102 8084 Closed
+192.168.3.102 8085 Closed
+192.168.3.102 8086 Opened
+192.168.3.102 8087 Closed
+192.168.3.102 8088 Closed
+192.168.3.102 8089 Closed
+192.168.3.102 8090 Closed
 
-![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.0-Method-ConnectAsync.jpg)
+PS C:\Users\lifailon> Get-PortCheck 192.168.3.0 8085 100 -Open
 
-## Метод BeginConnect (1.1)
-
-**Быстрый метод**, где мы пытаемся установить соединение, без последующего подключения. Тем самым можно задать **timeout (третий параметр)**, и сократить время сканирования портов, разрывая попытку соединения.
-
-![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.1-%20Method-BeginConnect-500ms-vs-100ms.jpg)
-
-## С применение ThreadJob (1.2)
-
-**Сравнение данного метода с и без использования ThreadJob (Timeout 100 milliseconds)**.
-
-![Image alt](https://github.com/Lifailon/Get-PortCheck/blob/rsa/Screen/1.1-vs-1.2-ThreadJob.jpg)
-
-**Исходя из полученных результатов, создание задания (Jobs) занимае в среднем на 30-40% меньше времени, чем sleep 100 Milliseconds**.
+IP            Port Status
+--            ---- ------
+192.168.3.99  8085 Opened
+192.168.3.100 8085 Opened
+```
